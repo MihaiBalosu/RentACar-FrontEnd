@@ -1,0 +1,31 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h3 class="login-title">Login</h3>
+    </div>
+    <div class="login-body">
+      <form (ngSubmit)="onLoginSubmit()">
+        <div class="form-group">
+          <mat-form-field appearance="outline" class="w-100">
+            <div class="input-with-icon">
+              <mat-icon class="icon-align email-icon">email</mat-icon>
+              <input matInput type="email" name="email" [(ngModel)]="loginData.email" required placeholder="Email">
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" class="w-100">
+            <div class="input-with-icon">
+              <mat-icon class="icon-align password-icon">vpn_key</mat-icon>
+              <input matInput [type]="hidePassword ? 'password' : 'text'" name="password" [(ngModel)]="loginData.password" required placeholder="Password">
+              <button mat-icon-button type="button" (click)="togglePasswordVisibility()" class="eye-button">
+                <mat-icon class="password-visibility-icon">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </button>
+            </div>
+          </mat-form-field>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

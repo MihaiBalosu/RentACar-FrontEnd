@@ -1,0 +1,30 @@
+<div class="button-container">
+    <button mat-raised-button color="primary" (click)="onCreateCar()">Create Car</button>
+</div>
+<table class="car-table">
+    <tr>
+      <th>Name</th>
+      <th>Photo</th>
+      <th>Dealer Name</th>
+      <th>Fuel Type</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let car of cars">
+      <td>{{ car.name }}</td>
+      <td>
+        <img
+          *ngIf="car.photoPath"
+          [src]="car.photoPath"
+          alt="Car Photo"
+          class="car-photo"
+        />
+      </td>
+      <td>{{ car.carDealer }}</td>
+      <td>{{ car.fuelType }}</td>
+      <td>
+        <button (click)="onEditCar(car)">Edit</button>
+        <button (click)="onRemoveCar(car)">Remove</button>
+      </td>
+    </tr>
+  </table>
+  

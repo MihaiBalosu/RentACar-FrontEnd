@@ -1,0 +1,141 @@
+/* car-editor.component.css */
+
+/* Style the form container */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style form fields and labels */
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  input,
+  select {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  /* Style the photo input section */
+  #photoInput {
+    display: none; /* Hide the input by default */
+  }
+  
+  .photo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .photo-label {
+    cursor: pointer;
+    padding: 8px 12px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .photo-filename {
+    margin-left: 10px;
+  }
+  
+  /* Style the photo preview */
+  .photo-preview {
+    max-width: 100%;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the submit button */
+  button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add spacing between form sections */
+  div:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  /* Two-column layout */
+  .form-columns {
+    display: flex;
+  }
+  
+  .form-column {
+    flex: 1;
+    padding: 0 10px;
+  }
+  
+  /* car-component.css */
+
+/* Rest of the CSS styles... */
+
+/* Add spacing between form sections */
+div:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  /* Two-column layout */
+  .form-columns {
+    display: flex;
+  }
+  
+  .form-column {
+    flex: 1;
+    padding: 0 10px;
+  }
+  
+  /* Photo row */
+  .photo-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .photo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .photo-label {
+    cursor: pointer;
+    padding: 8px 12px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .photo-filename {
+    margin-left: 10px;
+  }
+  
+  .photo-path-container {
+    flex: 1;
+    padding-left: 20px;
+  }
+  

@@ -1,0 +1,82 @@
+<!-- car-component.html -->
+
+<div class="car-form-container">
+    <form [formGroup]="carForm" class="car-form">
+      <div class="form-columns">
+        <!-- Left column fields -->
+        <div class="form-column">
+          <label for="name">Car Name</label>
+          <input type="text" id="name" formControlName="name">
+  
+          <!-- Add more input fields for other properties (price, numberOfPassengers, numberOfBags, etc.) -->
+  
+          <label for="price">Price</label>
+          <input type="number" id="price" formControlName="price">
+  
+          <label for="numberOfPassengers">Number of Passengers</label>
+          <input type="number" id="numberOfPassengers" formControlName="numberOfPassengers">
+  
+          <label for="numberOfBags">Number of Bags</label>
+          <input type="number" id="numberOfBags" formControlName="numberOfBags">
+  
+          <label for="minimumAgeWithoutFee">Minimum Age Without Fee</label>
+          <input type="number" id="minimumAgeWithoutFee" formControlName="minimumAgeWithoutFee">
+  
+          <label for="automaker">Automaker</label>
+          <input type="text" id="automaker" formControlName="automaker">
+        </div>
+  
+        <!-- Right column fields -->
+        <div class="form-column">  
+          <label for="carDealer">Car Dealer</label>
+          <select id="carDealer" formControlName="carDealer">
+            <option *ngFor="let dealerName of carDealersNames" [value]="dealerName">{{ dealerName }}</option>
+          </select>
+  
+          <label for="carType">Car Type</label>
+          <select id="carType" formControlName="carType">
+            <option [value]="null" disabled>Select Car Type</option>
+            <option *ngFor="let carType of carTypesBaseOptions" [value]="carType.value">{{ carType.text }}</option>
+          </select>
+  
+          <label for="fuelType">Fuel Type</label>
+          <select id="fuelType" formControlName="fuelType">
+            <option [value]="null" disabled>Select Fuel Type</option>
+            <option *ngFor="let fuelType of fuelTypesBaseOptions" [value]="fuelType.value">{{ fuelType.text }}</option>
+          </select>
+
+          <label for="automatic">Automatic</label>
+          <input type="checkbox" id="automatic" formControlName="automatic">
+  
+          <label for="discountApplicable">Discount Applicable</label>
+          <input type="checkbox" id="discountApplicable" formControlName="discountApplicable">
+        </div>
+      </div>
+  
+      <!-- Add photo input and button together in a row -->
+      <div class="photo-row">
+        <div class="photo-container">
+          <label for="photoInput" class="photo-label">Attach Photo</label>
+          <input
+            type="file"
+            id="photoInput"
+            (change)="onPhotoSelected($event)"
+            accept="image/*"
+          />
+          <span class="photo-filename">{{ selectedPhoto?.name }}</span>
+        </div>
+        <div class="photo-path-container">
+          <label for="photoPath">Photo Path</label>
+          <input type="text" id="photoPath" formControlName="photoPath">
+        </div>
+      </div>
+  
+      <!-- Photo preview -->
+      <div *ngIf="photoPreviewUrl">
+        <img [src]="photoPreviewUrl" alt="Photo Preview" class="photo-preview" />
+      </div>
+    </form>
+  </div>
+  
+  <button (click)="onSaveCar()">Save</button>
+  

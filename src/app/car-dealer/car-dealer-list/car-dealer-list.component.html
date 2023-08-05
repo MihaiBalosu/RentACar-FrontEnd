@@ -1,0 +1,21 @@
+<div class="button-container">
+    <button mat-raised-button color="primary" (click)="onCreateCarDealer()">Create Car</button>
+</div>
+<table class="car-table">
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <!-- Add other dealer properties as needed -->
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let dealer of dealersList">
+      <td>{{ dealer.name }}</td>
+      <!-- <td>{{ dealer.location.city }}, {{ dealer.location.country }}</td> -->
+      <!-- Display other dealer properties as needed -->
+      <td>
+        <button (click)="onEditCarDealer(dealer)">Edit</button>
+        <button (click)="onRemoveCarDealer(dealer)">Remove</button>
+      </td>
+    </tr>
+  </table>
+  

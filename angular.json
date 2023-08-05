@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -59,6 +60,10 @@
                   "maximumError": "4kb"
                 }
               ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true
             }
           }
         },
@@ -70,8 +75,12 @@
           "configurations": {
             "production": {
               "browserTarget": "RentACar-FrontEnd:build:production"
+            },
+            "development": {
+              "browserTarget": "RentACar-FrontEnd:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -91,6 +100,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -124,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "RentACar-FrontEnd"
+  "defaultProject": "RentACar-FrontEnd",
+  "cli": {
+    "analytics": "8e11316c-96c7-4337-a6fd-05c3f6743edd"
+  }
 }

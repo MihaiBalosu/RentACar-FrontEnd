@@ -1,0 +1,19 @@
+<h2>Create Dealer</h2>
+
+<form [formGroup]="dealerForm" (ngSubmit)="saveDealer()">
+
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" />
+  </div>
+
+  <!-- Add other dealer form fields here -->
+
+  <div style="height: 400px; width: 100%;">
+    <agm-map [latitude]="selectedLocation.latitude" [longitude]="selectedLocation.longitude" (mapClick)="onMapClick($event)">
+      <agm-marker [latitude]="selectedLocation.latitude" [longitude]="selectedLocation.longitude"></agm-marker>
+    </agm-map>
+  </div>
+
+  <button type="submit" [disabled]="!dealerForm.valid">Save</button>
+</form>
