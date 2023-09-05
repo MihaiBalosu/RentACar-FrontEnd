@@ -1,0 +1,23 @@
+<!-- customer.component.html -->
+<mat-card>
+    <mat-card-title>Customer Information</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="customerForm">
+        <mat-form-field>
+          <input matInput placeholder="First Name" formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last Name" formControlName="lastName">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="dobPicker" placeholder="Date of Birth" formControlName="dob">
+          <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+          <mat-datepicker #dobPicker></mat-datepicker>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

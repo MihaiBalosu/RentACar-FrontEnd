@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-title>Reviews</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item class="review-item" *ngFor="let review of reviews">
+          <mat-card>
+            <mat-card-content>
+              <p>Opinion: {{ review.review }}</p>
+              <app-star-rating
+              [clickable]="false"
+              [rating]="review.rating"
+              ></app-star-rating>            
+            </mat-card-content>
+          </mat-card>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+  

@@ -1,30 +1,51 @@
+<!-- car-list.component.html -->
+
 <div class="button-container">
-    <button mat-raised-button color="primary" (click)="onCreateCar()">Create Car</button>
+  <button mat-raised-button color="primary" 
+    *ngIf="isUserAdminOrDealer()"
+    (click)="onCreateCar()">Create Car</button>
 </div>
-<table class="car-table">
-    <tr>
-      <th>Name</th>
-      <th>Photo</th>
-      <th>Dealer Name</th>
-      <th>Fuel Type</th>
-      <th>Actions</th>
-    </tr>
-    <tr *ngFor="let car of cars">
-      <td>{{ car.name }}</td>
-      <td>
-        <img
-          *ngIf="car.photoPath"
-          [src]="car.photoPath"
-          alt="Car Photo"
-          class="car-photo"
-        />
-      </td>
-      <td>{{ car.carDealer }}</td>
-      <td>{{ car.fuelType }}</td>
-      <td>
-        <button (click)="onEditCar(car)">Edit</button>
-        <button (click)="onRemoveCar(car)">Remove</button>
-      </td>
-    </tr>
-  </table>
-  
+
+<mat-table [dataSource]="dataSource" class="mat-car-table" matSort>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+    <mat-cell *matCellDef="let car">{{ car.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="photo">
+    <mat-header-cell *matHeaderCellDef>Photo</mat-header-cell>
+    <mat-cell *matCellDef="let car">
+      <img *ngIf="car.photoPath" [src]="car.photoPath" alt="Car Photo" class="car-photo" />
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="carDealer">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Dealer Name</mat-header-cell>
+    <mat-cell *matCellDef="let car">{{ car.carDealer }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fuelType">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Fuel Type</mat-header-cell>
+    <mat-cell *matCellDef="let car">{{ car.fuelType }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+    <mat-cell *matCellDef="let car">
+      <button mat-icon-button *ngIf="isUserAdminOrDealer()" (click)="onEditCar(car)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button *ngIf="isUserAdminOrDealer()" (click)="onRemoveCar(car)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-raised-button color="primary" *ngIf="!isUserAdminOrDealer()" (click)="onRentCar(car)">
+        Rent car
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>

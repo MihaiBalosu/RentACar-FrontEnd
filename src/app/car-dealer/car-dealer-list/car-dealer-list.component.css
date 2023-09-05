@@ -1,0 +1,26 @@
+/* car-list.component.css */
+
+.car-dealer-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .car-dealer-table th,
+  .car-dealer-table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+  .car-dealer-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .car-dealer-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  button {
+    margin-right: 5px;
+  }
+  

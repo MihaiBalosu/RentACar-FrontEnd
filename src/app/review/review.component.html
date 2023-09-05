@@ -1,0 +1,21 @@
+  <mat-card>
+    <mat-card-title>Add Your Review</mat-card-title>
+    <mat-card-content>
+      <form>
+        <div>
+          <label for="opinion">Your Opinion</label>
+          <textarea class="opinion" id="opinion" name="opinion" placeholder="Your opinion" rows="4" [(ngModel)]="opinion"></textarea>
+        </div>
+        <div>
+          <label >Rating</label>
+          <app-star-rating
+            [rating]="rating"
+            [clickable]="true"
+            (ratingUpdated)="onRatingChanged($event)"
+            ></app-star-rating>
+        </div>
+        <button type="button" mat-raised-button color="primary" (click)="submitReview()">Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

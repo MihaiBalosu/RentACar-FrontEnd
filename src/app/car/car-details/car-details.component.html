@@ -1,0 +1,56 @@
+<div class="car-details">
+    <div class="car-photo-container">
+      <img [src]="car.photoPath" alt="Car Photo" class="car-photo">
+    </div>
+    <div class="car-description">
+      <h2>{{ car.name }} - {{ car.automaker }}</h2>
+      
+      <div class="dealer-info">
+        Available at: {{ car.carDealer }}
+      </div>
+
+      <app-date-range-picker [carId]="car.id" [form]="dateRangeForm"></app-date-range-picker>
+      <button mat-raised-button color="primary" (click)="onCheckAvailability(car)">
+        Check Availability
+      </button>
+  
+      <h3>Key Features:</h3>
+      <ul>
+        <li><strong>Automatic:</strong> {{ car.automatic }}</li>
+        <li><strong>Fuel Type:</strong> {{ car.fuelType }}</li>
+        <li><strong>Seating:</strong> {{ car.numberOfPassengers }} seats</li>
+        <li><strong>Car Type:</strong> {{ car.carType }}</li>
+      </ul>
+  
+      <h3>Description:</h3>
+      <p>
+        Experience driving in style and comfort with the {{ car.name }} brought to you by {{ car.automaker }}.
+        This {{ car.carType }} is equipped with transmission, making it a breeze to handle on any road.
+        With a spacious interior accommodating {{ car.numberOfPassengers }} seats, it's perfect for both family trips and group outings.
+        Powered by {{ car.fuelType }} fuel, the {{ car.name }} delivers an efficient yet powerful performance, ensuring you get the most out of every journey.
+        Whether you're cruising through city streets or exploring scenic routes, this car offers a blend of reliability and excitement.
+      </p>
+  
+      <h3>Pricing:</h3>
+      <p>
+        Starting at {{ car.price }} per day, the {{ car.name }} offers exceptional value for its features and capabilities.
+        Don't miss out on the opportunity to rent this exceptional vehicle for your upcoming travels.
+      </p>
+  
+      <p>
+        Make your reservation today and experience the road like never before with the {{ car.name }} from {{ car.automaker }},
+        available exclusively at {{ car.carDealer }}.
+      </p>
+
+      <app-review [carId]="car.id"
+        (ratingUpdated)="onReviewsRetrieved($event)"
+      ></app-review>
+
+      <button mat-raised-button color="primary" (click)="toggleReviewVisibility()">
+        Show Reviews
+      </button>
+
+      <app-review-list [reviews]="car.reviews" *ngIf="showReviews" ></app-review-list>
+    </div>
+  </div>
+  

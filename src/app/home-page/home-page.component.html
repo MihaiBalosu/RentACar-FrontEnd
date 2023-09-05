@@ -1,0 +1,13 @@
+<div class="center">
+    <app-date-range-picker [form]="dateRangeForm"></app-date-range-picker>
+    <button mat-raised-button color="primary" (click)="searchAvailableCars()">New Button</button>
+  </div>
+  
+  <app-car-carousel *ngIf="!searchButtonClicked"></app-car-carousel>
+
+  <app-car-list *ngIf="searchButtonClicked" 
+  [cars]="availableCars" 
+  [endDate]="dateRangeForm.value.endDate"
+  [startDate]="dateRangeForm.value.startDate">
+    </app-car-list>
+  

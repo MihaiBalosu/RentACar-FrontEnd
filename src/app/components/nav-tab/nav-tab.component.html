@@ -1,0 +1,16 @@
+<div class="nav-tab" [class.collapsed]="!navOpened">
+    <div class="nav-header" (click)="toggleNav()">
+      <mat-icon class="sidebar-icon">menu</mat-icon>
+    </div>
+    <nav class="nav-content" *ngIf="navOpened">
+      <a *ngIf="!token" routerLink="/login">Login</a>
+      <a *ngIf="isRegisterButtonVisible()" routerLink="/register">Register</a>
+      <a routerLink="/home-page">Home</a>
+      <a routerLink="/cars-list">CarsList</a>
+      <a routerLink="/car-dealers-list">CarDealersList</a>
+      <a routerLink="/add-on-list">AddOnList</a>
+      <a routerLink="/car-protection-list">CarProtectionList</a>
+      <a *ngIf="token" (click)="logout()">Logout</a>
+    </nav>
+  </div>
+  

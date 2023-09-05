@@ -1,0 +1,20 @@
+<div class="button-container">
+    <button mat-raised-button color="primary" (click)="onCreateCarProtection()">Create CarProtection</button>
+</div>
+<table class="car-protection-table">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+    <tr *ngFor="let carProtection of carProtections">
+      <td>{{ carProtection.name }}</td>
+      <td>{{ carProtection.description }}</td>
+      <td>{{ carProtection.price }}</td>
+      <td>
+        <button (click)="onEditCarProtection(carProtection)">Edit</button>
+        <button (click)="onRemoveCarProtection(carProtection)">Remove</button>
+      </td>
+    </tr>
+  </table>
+  

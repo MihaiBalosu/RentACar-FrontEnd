@@ -1,0 +1,74 @@
+<!-- rental.component.html -->
+<div class="centered-container">
+ <mat-card>
+    <mat-card-title>Rental Information</mat-card-title>
+    <mat-card-content>
+        <app-date-range-picker [form]="dateRangeForm" [carId]="car.id"></app-date-range-picker>
+       <div class="sample-column">
+        <div class="card-wrapper">
+            <ng-container *ngFor="let addOn of addOnsData">
+                <igx-card>    
+                    <igx-card-header>
+                        <h4 igxCardHeaderTitle>{{ addOn.name }}</h4>
+                    </igx-card-header>
+    
+                    <igx-card-content>
+                        <h5 igxCardHeaderSubtitle>{{ addOn.description }}</h5>
+                        <h5 igxCardHeaderSubtitle>Price: {{ addOn.price }}</h5>
+                    </igx-card-content>
+    
+                    <igx-card-actions>
+                        <button mat-icon-button (click)="addAddOn(addOn)">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </igx-card-actions>
+                </igx-card>
+            </ng-container>
+        </div>
+        <igx-paginator #paginator
+            [perPage]="3"
+            [selectOptions]="itemsPerPage"
+            [totalRecords]="addOns.length">
+        </igx-paginator>
+    </div>
+
+    <div class="sample-column">
+        <div class="card-wrapper">
+            <ng-container *ngFor="let carProtection of carProtectionsData">
+                <igx-card>    
+                    <igx-card-header>
+                        <h4 igxCardHeaderTitle>{{ carProtection.name }}</h4>
+                    </igx-card-header>
+    
+                    <igx-card-content>
+                        <h5 igxCardHeaderSubtitle>{{ carProtection.description }}</h5>
+                        <h5 igxCardHeaderSubtitle>Price: {{ carProtection.price }}</h5>
+                    </igx-card-content>
+    
+                    <igx-card-actions>
+                        <button mat-icon-button (click)="addCarProtection(carProtection)">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </igx-card-actions>
+                </igx-card>
+            </ng-container>
+        </div>
+        <igx-paginator #paginator
+            [perPage]="3"
+            [selectOptions]="itemsPerPage"
+            [totalRecords]="carProtections.length">
+        </igx-paginator>
+    </div>
+    
+    
+       <app-customer [customerForm]="customerForm"></app-customer>
+    </mat-card-content>
+    <mat-card-actions class="rental-actions">
+      <div class="price-section">
+        <p>Total Price: {{ calculateTotalPrice() }}</p>
+      </div>
+      <button mat-raised-button color="primary" (click)="rent()">Rent</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+  

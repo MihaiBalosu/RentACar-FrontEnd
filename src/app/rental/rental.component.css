@@ -1,0 +1,67 @@
+.rental-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    overflow: auto; /* Enable scrolling */
+}
+  
+  mat-card {
+    width: 100%;
+    max-width: 1500px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .sample-column {
+    padding-bottom: 50px;
+}
+.card-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    height: 200px;
+}
+
+.card-wrapper .igx-card {
+    flex: 1 1 0;
+    margin: 5px;
+}
+
+.igx-card-header__subtitle {
+    font-size: 0.999rem;
+}
+  
+  .rental-actions {
+    margin-top: 20px;
+  }
+  
+  .price-section {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #1976d2; /* Button color */
+  }
+  
+  .app-date-range-picker {
+    margin-bottom: 20px;
+  }
+  
+  .mat-button {
+    font-size: 2.5rem; /* Increase font size */
+    padding: 10px 20px; /* Increase padding */
+}

@@ -1,0 +1,49 @@
+/* nav-tab.component.css */
+.nav-tab {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--nav-width, 150px);
+    height: 100vh;
+    background-color: #333;
+    color: #fff;
+    transition: width 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .collapsed {
+    --nav-width: 40px;
+  }
+  
+  .nav-header {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .sidebar-icon {
+    font-size: 24px;
+    color: red;
+    padding-left: 10px;
+    padding-right: 15px;
+  }
+  
+  .nav-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+  
+  .nav-content a {
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-content a:hover {
+    background-color: #444;
+  }
+  

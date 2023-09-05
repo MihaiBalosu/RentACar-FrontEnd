@@ -1,0 +1,39 @@
+<div class="sample-column">
+    <div class="card-wrapper">
+        <ng-container *ngFor="let car of data">
+            <igx-card>
+                <igx-card-media height="300px">
+                    <img [src]="car.photoPath">
+                </igx-card-media>
+
+                <igx-card-header>
+                    <h4 igxCardHeaderTitle>{{ car.name }}</h4>
+                </igx-card-header>
+
+                <igx-card-content>
+                    <h5 igxCardHeaderSubtitle>Automatic: {{ car.automatic }}</h5>
+                    <h5 igxCardHeaderSubtitle>Manufactor: {{ car.automaker }}</h5>
+                    <h5 igxCardHeaderSubtitle>Dealer: {{ car.carDealer }}</h5>
+                    <h5 igxCardHeaderSubtitle>Price: {{ car.price }}</h5>
+                </igx-card-content>
+
+                <igx-card-actions>
+                    <button igxButton="outlined" igxRipple igxStart>Rent now</button>
+                    <button igxButton="icon"
+                        (click)="viewCar(car)"
+                        igxRipple
+                        [igxRippleCentered]="true" igxEnd>
+                        <igx-icon> info </igx-icon>
+                    </button>
+                </igx-card-actions>
+            </igx-card>
+        </ng-container>
+    </div>
+    <igx-paginator #paginator
+        [perPage]="3"
+        [selectOptions]="itemsPerPage"
+        [totalRecords]="cars.length"
+        (perPageChange)="navigateToFirstPage()">
+    </igx-paginator>
+</div>
+

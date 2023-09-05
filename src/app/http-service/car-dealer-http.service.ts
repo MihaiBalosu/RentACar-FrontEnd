@@ -31,8 +31,8 @@ export class CarDealerHttpService {
           .delete(`${this.baseUrl}/car-dealer/${id}`, {headers: this.requestHeader});
     }
 
-    public save(car: CarDealer){
+    public save(carDealer: CarDealer){
         return this.httpClient
-          .post(this.baseUrl + "/car-dealer", car, {headers: this.requestHeader});
+          .post(this.baseUrl + "/car-dealer", carDealer, {headers: this.requestHeader});
     }
 }

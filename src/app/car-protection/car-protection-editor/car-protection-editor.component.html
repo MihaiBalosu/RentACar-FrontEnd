@@ -1,0 +1,21 @@
+<h2>Create Car protetcion</h2>
+
+<form [formGroup]="addOnForm" (ngSubmit)="onSaveCarProtection()">
+
+  <mat-form-field>
+    <mat-label>Name:</mat-label>
+    <input matInput type="text" formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description:</mat-label>
+    <input matInput type="text" formControlName="description" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Price:</mat-label>
+    <input matInput type="text" formControlName="price" />
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" [disabled]="!addOnForm.valid">Save</button>
+</form>

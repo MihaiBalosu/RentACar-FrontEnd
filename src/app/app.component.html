@@ -1,9 +1,6 @@
-<h1>Welcome to RentACar</h1>
-<nav>
-  <a routerLink="/login">Login</a>
-  <a routerLink="/register">Register</a>
-  <a routerLink="/cars-list">CarsList</a>  
-  <a routerLink="/car-dealers-list">CarsList</a>
-
-</nav>
-<router-outlet></router-outlet>
+<div class="app-container">
+  <app-nav-tab></app-nav-tab>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

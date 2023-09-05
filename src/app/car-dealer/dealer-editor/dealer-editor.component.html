@@ -7,13 +7,16 @@
     <input type="text" id="name" formControlName="name" />
   </div>
 
-  <!-- Add other dealer form fields here -->
-
-  <div style="height: 400px; width: 100%;">
-    <agm-map [latitude]="selectedLocation.latitude" [longitude]="selectedLocation.longitude" (mapClick)="onMapClick($event)">
-      <agm-marker [latitude]="selectedLocation.latitude" [longitude]="selectedLocation.longitude"></agm-marker>
-    </agm-map>
-  </div>
+  <google-map height="500px"
+            width="900px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="onMapClick($event)"
+            (mapMousemove)="move($event)">
+</google-map>
+  
+<div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div>
 
   <button type="submit" [disabled]="!dealerForm.valid">Save</button>
 </form>

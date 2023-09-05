@@ -1,5 +1,6 @@
 import { CarTypeEnum } from "./CarTypeEnum";
 import { FuelTypeEnum } from "./FuelTypeEnum";
+import { Review } from "./Review";
 
 export class Car {
     id!: number;
@@ -15,4 +16,5 @@ export class Car {
     carDealer!: String;
     carType!: CarTypeEnum;
     fuelType!: FuelTypeEnum;
+    reviews: Review[]
 }
